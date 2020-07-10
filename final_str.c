@@ -6,7 +6,7 @@
 /*   By: gtalaver <gtalaverodev@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 21:39:32 by gtalaver          #+#    #+#             */
-/*   Updated: 2020/07/07 22:21:53 by gtalaver         ###   ########.fr       */
+/*   Updated: 2020/07/10 20:26:40 by gtalaver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,15 @@ void	fill_final_str(t_data *x)
 	x->width < x->raw_str_len ? x->width = x->raw_str_len : 0;
 	cero_flag(x);
 	minus_flag(x);
-	ft_putstr_fd(x->final_str, 1);
-	free(x->final_str);
+	//ft_putstr_fd(x->final_str, 1);
+	while (*x->final_str != '\0')
+	{
+		if (ft_isprint(*x->final_str))
+		{
+			ft_putchar_fd(*x->final_str, 1);
+		}
+		x->final_str++;
+	}
+	//free(x->final_str);
 	x->len += x->width;
 }
