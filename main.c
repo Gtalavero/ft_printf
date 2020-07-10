@@ -6,7 +6,7 @@
 /*   By: gtalaver <gtalaverodev@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/03 18:22:09 by gtalaver          #+#    #+#             */
-/*   Updated: 2020/07/07 22:07:10 by gtalaver         ###   ########.fr       */
+/*   Updated: 2020/07/10 18:35:56 by gtalaver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		main(void)
 {
-	char	*s = 0;
+	// char	*s = 0;
 	// int		i = -5;
 	// char	c = 'a';
 	// int		lenfake; 
@@ -25,7 +25,7 @@ int		main(void)
 	// lenfake = 
 	// printf("%5%");
 	// printf("\n");
-	ft_printf("%s!", s);
+	ft_printf("%s", "testing testing");
 	// printf("%5%");
 	//lenori = ft_printf("%s, %s!\n", "Hello", "world");
 	// printf("\n\nLONGITUD FAKE: %d\nLONGITUD ORIG: %d", lenfake, lenori);
