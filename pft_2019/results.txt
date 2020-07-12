@@ -1,0 +1,33 @@
+WARNING: The return values reported here may be bugged on some systems.
+          See https://github.com/gavinfielder/pft/issues/11
+          Run in non-fork mode (-X) to ensure accurate return value
+          reporting, set IGNORE_RETURN_VALUE=1 in options-config.ini,
+          or run test_pipes.sh to see if your system has this bug.
+          This bug does not affect the pass/fail result of a test, nor
+          the function output--only the reported return value.
+
+
+Test 709 (moul_prec_4) : FAILED.
+    First line of code: {return test("%%04.3i 42 == |%04.3i|
+", 42);}
+      expected return value : 22
+      your return value     : 22
+      expected output : "%04.3i 42 == | 042|
+"
+      your output     : "%04.3i 42 == |0042|
+"
+      expected (nonprintable as hex) : "%04.3i 42 == | 042|\x0a"
+      actual   (nonprintable as hex) : "%04.3i 42 == |0042|\x0a"
+
+Test 710 (moul_prec_5) : FAILED.
+    First line of code: {return test("%%04.2i 42 == |%04.2i|
+", 42);}
+      expected return value : 22
+      your return value     : 22
+      expected output : "%04.2i 42 == |  42|
+"
+      your output     : "%04.2i 42 == |0042|
+"
+      expected (nonprintable as hex) : "%04.2i 42 == |  42|\x0a"
+      actual   (nonprintable as hex) : "%04.2i 42 == |0042|\x0a"
+

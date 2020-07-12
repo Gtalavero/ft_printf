@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   unit_tests.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gfielder <gfielder@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gtalaver <gtalaverodev@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 21:15:57 by gfielder          #+#    #+#             */
-/*   Updated: 2019/11/19 18:06:44 by cclaude          ###   ########.fr       */
+/*   Updated: 2020/07/12 19:54:45 by gtalaver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -973,5 +973,9 @@ int new2019_negstar_6(void){return test("%*i", -4, 94827);}
 int new2019_negstar_7(void){return test("%*i", -14, 94827);}
 int new2019_negstar_8(void){return test("%.*i", -6, -3);}
 int new2019_negstar_9(void){return test("%0*i", -7, -54);}
+
+
+// OWN TEST
+int own_1(void){return test("%s", -0);}
 
 #pragma clang diagnostic pop

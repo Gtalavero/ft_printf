@@ -6,7 +6,7 @@
 /*   By: gtalaver <gtalaverodev@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/28 19:09:25 by gtalaver          #+#    #+#             */
-/*   Updated: 2020/07/07 19:28:53 by gtalaver         ###   ########.fr       */
+/*   Updated: 2020/07/12 19:59:25 by gtalaver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,11 +87,13 @@ void	c_conversion(t_data *x)
 {
 	char	arg[2];
 
-	if (x->type == '%')
-		arg[0] = '%';
-	else
-		arg[0] = va_arg(x->ap, int);
+	x->type == '%' ? arg[0] = '%' : (arg[0] = va_arg(x->ap, int));
 	arg[1] = '\0';
+	if (arg[0] == '\0')
+	{
+		write (1, "\0", 1);
+		x->len++;
+	}
 	x->raw_str = arg;
 }
 

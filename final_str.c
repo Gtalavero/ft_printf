@@ -6,7 +6,7 @@
 /*   By: gtalaver <gtalaverodev@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 21:39:32 by gtalaver          #+#    #+#             */
-/*   Updated: 2020/07/10 20:26:40 by gtalaver         ###   ########.fr       */
+/*   Updated: 2020/07/12 19:31:45 by gtalaver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@ void	cero_flag(t_data *x)
 	if (x->flag == '0' && x->type != 's' && x->type != 'c')
 	{
 		x->final_str = malloc(x->width * sizeof(char) + 1);
+		x->final_str[x->width] = '\0';
 		ft_memset(x->final_str, '0', x->width);
 	}
 	else
 	{
-		x->final_str = malloc(x->width * sizeof(char) + 1);
+		x->final_str = malloc(x->width * sizeof(char));
+		x->final_str[x->width] = '\0';
 		ft_memset(x->final_str, ' ', x->width);
 	}
 }
@@ -53,17 +55,18 @@ void	fill_final_str(t_data *x)
 		x->raw_str = ft_strdup("(null)"); // Poner simplemente x->raw_str = "(null)";
 	x->raw_str_len = ft_strlen(x->raw_str);
 	x->width < x->raw_str_len ? x->width = x->raw_str_len : 0;
+	// x->width -= 1;
 	cero_flag(x);
 	minus_flag(x);
-	//ft_putstr_fd(x->final_str, 1);
-	while (*x->final_str != '\0')
-	{
-		if (ft_isprint(*x->final_str))
-		{
-			ft_putchar_fd(*x->final_str, 1);
-		}
-		x->final_str++;
-	}
+	ft_putstr_fd(x->final_str, 1);
+	// while (*x->final_str != '\0')
+	// {
+	// 	if (ft_isprint(*x->final_str))
+	// 	{
+	// 		ft_putchar_fd(*x->final_str, 1);
+	// 	}
+	// 	x->final_str++;
+	// }
 	//free(x->final_str);
 	x->len += x->width;
 }
