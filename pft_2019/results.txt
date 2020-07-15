@@ -7,27 +7,48 @@ WARNING: The return values reported here may be bugged on some systems.
           the function output--only the reported return value.
 
 
-Test 709 (moul_prec_4) : FAILED.
-    First line of code: {return test("%%04.3i 42 == |%04.3i|
-", 42);}
-      expected return value : 22
-      your return value     : 22
-      expected output : "%04.3i 42 == | 042|
-"
-      your output     : "%04.3i 42 == |0042|
-"
-      expected (nonprintable as hex) : "%04.3i 42 == | 042|\x0a"
-      actual   (nonprintable as hex) : "%04.3i 42 == |0042|\x0a"
+Test 310 (u_prec_width_fit_fit_pos) : FAILED.
+    First line of code: {return test("%8.5u", 34);}
+      expected return value : 8
+      your return value     : 8
+      expected output : "   00034"
+      your output     : "      34"
+      expected (nonprintable as hex) : "   00034"
+      actual   (nonprintable as hex) : "      34"
 
-Test 710 (moul_prec_5) : FAILED.
-    First line of code: {return test("%%04.2i 42 == |%04.2i|
-", 42);}
-      expected return value : 22
-      your return value     : 22
-      expected output : "%04.2i 42 == |  42|
-"
-      your output     : "%04.2i 42 == |0042|
-"
-      expected (nonprintable as hex) : "%04.2i 42 == |  42|\x0a"
-      actual   (nonprintable as hex) : "%04.2i 42 == |0042|\x0a"
+Test 311 (u_prec_width_fit_fit_zero) : FAILED.
+    First line of code: {return test("%8.5u", 0);}
+      expected return value : 8
+      your return value     : 8
+      expected output : "   00000"
+      your output     : "       0"
+      expected (nonprintable as hex) : "   00000"
+      actual   (nonprintable as hex) : "       0"
+
+Test 312 (u_prec_width_nofit_fit_pos) : FAILED.
+    First line of code: {return test("%8.3u", 8375);}
+      expected return value : 8
+      your return value     : 8
+      expected output : "    8375"
+      your output     : "     837"
+      expected (nonprintable as hex) : "    8375"
+      actual   (nonprintable as hex) : "     837"
+
+Test 313 (u_prec_width_fit_nofit_pos) : FAILED.
+    First line of code: {return test("%3.7u", 3267);}
+      expected return value : 7
+      your return value     : 4
+      expected output : "0003267"
+      your output     : "3267"
+      expected (nonprintable as hex) : "0003267"
+      actual   (nonprintable as hex) : "3267"
+
+Test 314 (u_prec_width_nofit_nofit_pos) : FAILED.
+    First line of code: {return test("%3.3u", 6983);}
+      expected return value : 4
+      your return value     : 3
+      expected output : "6983"
+      your output     : "698"
+      expected (nonprintable as hex) : "6983"
+      actual   (nonprintable as hex) : "698"
 

@@ -6,7 +6,7 @@
 /*   By: gtalaver <gtalaverodev@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/03 18:22:09 by gtalaver          #+#    #+#             */
-/*   Updated: 2020/07/12 20:02:10 by gtalaver         ###   ########.fr       */
+/*   Updated: 2020/07/15 20:08:06 by gtalaver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int		main(void)
 	// lenfake = 
 	// printf("%5%");
 	// printf("\n");
-	ft_printf("%%04.3i 42 == |%04.3i|", 42);
-	printf("%%04.3i 42 == |%04.3i|", 42);
+	ft_printf("%8.5u", 34);
+	// printf("%.0s", "hello");
 	// printf("%5%");
 	//lenori = ft_printf("%s, %s!\n", "Hello", "world");
 	// printf("\n\nLONGITUD FAKE: %d\nLONGITUD ORIG: %d", lenfake, lenori);

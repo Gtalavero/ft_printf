@@ -6,7 +6,7 @@
 /*   By: gtalaver <gtalaverodev@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 21:39:32 by gtalaver          #+#    #+#             */
-/*   Updated: 2020/07/12 19:31:45 by gtalaver         ###   ########.fr       */
+/*   Updated: 2020/07/15 20:06:40 by gtalaver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	cero_flag(t_data *x)
 {
-	if (x->flag == '0' && x->type != 's' && x->type != 'c')
+	if (x->flag == '0' && x->type != 's' && x->type != 'c'
+		&& !(x->type == 'd' && x->precision > 0))
 	{
 		x->final_str = malloc(x->width * sizeof(char) + 1);
 		x->final_str[x->width] = '\0';
@@ -48,25 +49,18 @@ void	minus_flag(t_data *x)
 
 void	fill_final_str(t_data *x)
 {
-	if (x->type != 'c' && x->type != 'p' && x->type != 'd' && x->type != 'i' 
-		&& x->precision > 0)
+	if (x->type != 'c' && x->type != 'p' && x->type != 'd')
 		x->raw_str = ft_substr(x->raw_str, 0, x->precision);
 	if (!(x->raw_str))
-		x->raw_str = ft_strdup("(null)"); // Poner simplemente x->raw_str = "(null)";
+	{
+		x->raw_str = "(null)";
+		x->raw_str = ft_substr(x->raw_str, 0, x->precision);
+	}
 	x->raw_str_len = ft_strlen(x->raw_str);
 	x->width < x->raw_str_len ? x->width = x->raw_str_len : 0;
-	// x->width -= 1;
 	cero_flag(x);
 	minus_flag(x);
 	ft_putstr_fd(x->final_str, 1);
-	// while (*x->final_str != '\0')
-	// {
-	// 	if (ft_isprint(*x->final_str))
-	// 	{
-	// 		ft_putchar_fd(*x->final_str, 1);
-	// 	}
-	// 	x->final_str++;
-	// }
 	//free(x->final_str);
 	x->len += x->width;
 }
