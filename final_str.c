@@ -6,7 +6,7 @@
 /*   By: gtalaver <gtalaverodev@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 21:39:32 by gtalaver          #+#    #+#             */
-/*   Updated: 2020/07/15 20:06:40 by gtalaver         ###   ########.fr       */
+/*   Updated: 2020/07/15 20:34:48 by gtalaver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	minus_flag(t_data *x)
 
 void	fill_final_str(t_data *x)
 {
-	if (x->type != 'c' && x->type != 'p' && x->type != 'd')
+	if (x->type != 'c' && x->type != 'p' && x->type != 'd' && x->type != 'u')
 		x->raw_str = ft_substr(x->raw_str, 0, x->precision);
 	if (!(x->raw_str))
 	{
@@ -61,6 +61,6 @@ void	fill_final_str(t_data *x)
 	cero_flag(x);
 	minus_flag(x);
 	ft_putstr_fd(x->final_str, 1);
-	//free(x->final_str);
+	free(x->final_str);
 	x->len += x->width;
 }

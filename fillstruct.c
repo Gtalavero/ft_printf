@@ -6,7 +6,7 @@
 /*   By: gtalaver <gtalaverodev@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 20:58:12 by gtalaver          #+#    #+#             */
-/*   Updated: 2020/07/15 20:02:45 by gtalaver         ###   ########.fr       */
+/*   Updated: 2020/07/15 20:34:41 by gtalaver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,10 +98,8 @@ int		fillstruct(t_data *x)
 	x->type == 's' ? x->raw_str = va_arg(x->ap, char *) : NULL;
 	if (x->type == 'p' || x->type == 'x' || x->type == 'X')
 		x_X_p_conversion(x);
-	if (x->type == 'd')
-		 d_i_conversion(x);
-	if (x->type == 'u')
-		x->raw_str = ft_itoa_base(va_arg(x->ap, unsigned int), 10);
+	if (x->type == 'd' || x->type == 'u')
+		 d_i_u_conversion(x);
 	fill_final_str(x);
 	return (1);
 }

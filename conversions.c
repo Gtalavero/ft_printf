@@ -6,7 +6,7 @@
 /*   By: gtalaver <gtalaverodev@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/28 19:09:25 by gtalaver          #+#    #+#             */
-/*   Updated: 2020/07/15 20:00:53 by gtalaver         ###   ########.fr       */
+/*   Updated: 2020/07/15 20:37:20 by gtalaver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,15 @@ void	x_X_p_conversion(t_data *x)
 	}
 }
 
-void	d_i_conversion(t_data *x)
+void	d_i_u_conversion(t_data *x)
 {
-	int		arg;
 	int		raw_str_len;
 
-	arg = va_arg(x->ap,	int);
 	// if (x->precision > 0)
-		x->raw_str = ft_itoa_minus(arg, x);
+	if (x->type == 'd')
+		x->raw_str = ft_itoa_minus(va_arg(x->ap, int), x);
+	else if (x->type == 'u')
+		x->raw_str = ft_itoa_base(va_arg(x->ap, unsigned int), 10);
 	raw_str_len = ft_strlen(x->raw_str);
 	while (x->precision-- > raw_str_len)
 		x->raw_str = ft_strjoin("0", x->raw_str);

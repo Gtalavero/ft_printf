@@ -6,7 +6,7 @@
 /*   By: gtalaver <gtalaverodev@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 18:48:25 by gtalaver          #+#    #+#             */
-/*   Updated: 2020/07/03 19:17:37 by gtalaver         ###   ########.fr       */
+/*   Updated: 2020/07/15 20:33:40 by gtalaver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int				fillstruct(t_data *x);
 void			c_conversion(t_data *x);
 void			s_conversion(t_data *x);
 void			d_i_conversion(t_data *x);
+void			d_i_u_conversion(t_data *x);
+void			u_conversion(t_data *x);
 void			x_X_p_conversion(t_data *x);
 void			fill_final_str(t_data *x);
 
