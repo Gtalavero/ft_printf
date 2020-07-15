@@ -25,7 +25,9 @@ int		main(void)
 	// lenfake = 
 	// printf("%5%");
 	// printf("\n");
-	ft_printf("%8.5u", 34);
+	ft_printf("%8.5d", 34);
+	ft_printf("\n");
+	ft_printf("%8.5X", 34);
 	// printf("%.0s", "hello");
 	// printf("%5%");
 	//lenori = ft_printf("%s, %s!\n", "Hello", "world");

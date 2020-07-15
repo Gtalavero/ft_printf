@@ -49,7 +49,7 @@ void	minus_flag(t_data *x)
 
 void	fill_final_str(t_data *x)
 {
-	if (x->type != 'c' && x->type != 'p' && x->type != 'd' && x->type != 'u')
+	if (x->type != 'c' && x->type != 'p' && x->type != 'd' && x->type != 'u' && x->type != 'x' && x->type != 'X')
 		x->raw_str = ft_substr(x->raw_str, 0, x->precision);
 	if (!(x->raw_str))
 	{

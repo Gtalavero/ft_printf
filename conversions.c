@@ -45,6 +45,7 @@ char		*ft_itoa_minus(int n, t_data *x)
 void	x_X_p_conversion(t_data *x)
 {
 	unsigned int		i;
+	int					raw_str_len;
 	
 	i = 0;
 	if (x->type == 'p')
@@ -66,6 +67,11 @@ void	x_X_p_conversion(t_data *x)
 				x->raw_str[i] = ft_tolower(x->raw_str[i]);
 				i++;
 			}
+		raw_str_len = ft_strlen(x->raw_str);
+		while (x->precision-- > raw_str_len)
+			x->raw_str = ft_strjoin("0", x->raw_str);
+		if (x->is_negative == 1)
+			x->raw_str = ft_strjoin("-", x->raw_str);
 	}
 }
 
