@@ -18,7 +18,6 @@ int		ft_printf(const char *format, ...)
 
 	va_start(x.ap, format);
 	x.len = 0;
-	// x.format = (char *)format;
 	x.format = ft_strjoin((char *)format, "\0");
 	x.raw_str = "\0";
 	x.final_str = "\0";

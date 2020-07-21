@@ -14,7 +14,7 @@
 
 void	cero_flag(t_data *x)
 {
-	if (x->flag == '0' && x->type != 's' && x->type != 'c'
+	if (x->flag == '0' && x->type != 'c'
 		&& !(x->type == 'd' && x->precision > 0))
 	{
 		x->final_str = malloc(x->width * sizeof(char) + 1);
@@ -25,7 +25,10 @@ void	cero_flag(t_data *x)
 	{
 		x->final_str = malloc(x->width * sizeof(char));
 		x->final_str[x->width] = '\0';
-		ft_memset(x->final_str, ' ', x->width);
+		if (x->is_negative == 1)
+			ft_memset(x->final_str, ' ', x->width - 1);
+		else
+			ft_memset(x->final_str, ' ', x->width);
 	}
 }
 
@@ -47,8 +50,32 @@ void	minus_flag(t_data *x)
 	}
 }
 
+void	d_is_negative(t_data *x)
+{
+	int		i;
+	
+	i = 0;
+	if (ft_isdigit(x->final_str[0]))
+	{
+		if (x->flag == '0' && x->final_str[0] == '0')
+			x->final_str[0] = '-';
+		else
+		{
+			x->final_str = ft_strjoin("-", x->final_str);
+			//x->len++; //fallo aqui en algunas casuisticas
+		}
+	}
+	else 
+	{
+		while (x->final_str[i] && x->final_str[i] == ' ')
+			i++;
+		x->final_str[--i] = '-';
+	}
+}
+
 void	fill_final_str(t_data *x)
 {
+	//cambiar esta guarrada
 	if (x->type != 'c' && x->type != 'p' && x->type != 'd' && x->type != 'u' && x->type != 'x' && x->type != 'X')
 		x->raw_str = ft_substr(x->raw_str, 0, x->precision);
 	if (!(x->raw_str))
@@ -60,7 +87,9 @@ void	fill_final_str(t_data *x)
 	x->width < x->raw_str_len ? x->width = x->raw_str_len : 0;
 	cero_flag(x);
 	minus_flag(x);
+	if (x->type == 'd' && x->is_negative == 1)
+		d_is_negative(x);
 	ft_putstr_fd(x->final_str, 1);
+	x->len += (int)ft_strlen(x->final_str);
 	free(x->final_str);
-	x->len += x->width;
 }

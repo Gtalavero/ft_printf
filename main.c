@@ -14,24 +14,12 @@
 
 int		main(void)
 {
-	// char	*s = 0;
-	// int		i = -5;
-	// char	c = 'a';
-	// int		lenfake; 
-	// int		lenori;
-	// int		w = 10;
-	// int		p = -20;
+	// ft_printf("%.4d", -143);
+	// ft_printf("%%\n");
+	ft_printf("%.0x", 0);
 
-	// lenfake = 
-	// printf("%5%");
-	// printf("\n");
-	ft_printf("%8.5d", 34);
-	ft_printf("\n");
-	ft_printf("%8.5X", 34);
-	// printf("%.0s", "hello");
-	// printf("%5%");
-	//lenori = ft_printf("%s, %s!\n", "Hello", "world");
+
 	// printf("\n\nLONGITUD FAKE: %d\nLONGITUD ORIG: %d", lenfake, lenori);
-	// system("leaks a.out");
+	//system("leaks a.out");
 	return (0);
 }

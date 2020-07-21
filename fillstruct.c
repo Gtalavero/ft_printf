@@ -84,6 +84,7 @@ void		get_type(t_data	*x)
 			x->type = conver[i];
 		i++;
 	}
+	// x->type == 'i' ? x->type = 'd' : 0;
 	if (x->type == 'i')
 		x->type = 'd';
 }

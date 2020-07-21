@@ -22,6 +22,7 @@ char		*ft_itoa_minus(int n, t_data *x)
 	if (nb < 0)
 	{
 		x->is_negative = 1;
+		//x->width++;
 		nb = nb * -1;
 	}
 	i = ft_numlen(nb, 10);
@@ -60,7 +61,8 @@ void	x_X_p_conversion(t_data *x)
 	}
 	if (x->type == 'x' || x->type == 'X')
 	{
-		x->raw_str = ft_itoa_base(va_arg(x->ap, unsigned int), 16);
+		if (x->precision != 0)
+			x->raw_str = ft_itoa_base(va_arg(x->ap, unsigned int), 16);
 		if (x->type == 'x')
 			while (x->raw_str[i])
 			{
@@ -68,8 +70,11 @@ void	x_X_p_conversion(t_data *x)
 				i++;
 			}
 		raw_str_len = ft_strlen(x->raw_str);
-		while (x->precision-- > raw_str_len)
+		while (x->precision > raw_str_len)
+		{
+			x->precision--;
 			x->raw_str = ft_strjoin("0", x->raw_str);
+		}
 		if (x->is_negative == 1)
 			x->raw_str = ft_strjoin("-", x->raw_str);
 	}
@@ -79,16 +84,19 @@ void	d_i_u_conversion(t_data *x)
 {
 	int		raw_str_len;
 
-	// if (x->precision > 0)
-	if (x->type == 'd')
-		x->raw_str = ft_itoa_minus(va_arg(x->ap, int), x);
-	else if (x->type == 'u')
-		x->raw_str = ft_itoa_base(va_arg(x->ap, unsigned int), 10);
-	raw_str_len = ft_strlen(x->raw_str);
-	while (x->precision-- > raw_str_len)
-		x->raw_str = ft_strjoin("0", x->raw_str);
-	if (x->is_negative == 1)
-		x->raw_str = ft_strjoin("-", x->raw_str);
+	if (x->precision > 0 || x->precision == -1)
+	{
+		if (x->type == 'd')
+			x->raw_str = ft_itoa_minus(va_arg(x->ap, int), x);
+		else if (x->type == 'u')
+			x->raw_str = ft_itoa_base(va_arg(x->ap, unsigned int), 10);
+		raw_str_len = ft_strlen(x->raw_str);
+		while (x->precision > raw_str_len)
+		{
+			x->precision--;
+			x->raw_str = ft_strjoin("0", x->raw_str);
+		}
+	}
 }
 
 void	c_conversion(t_data *x)
@@ -99,7 +107,14 @@ void	c_conversion(t_data *x)
 	arg[1] = '\0';
 	if (arg[0] == '\0')
 	{
-		write (1, "\0", 1);
+		x->flag == '-' ? write (1, "\0", 1) : 0;
+		while(--(x->width) > 0)
+		{
+			x->flag == '0' ? write(1, "0", 1) : write(1, " ", 1);
+			x->len++;
+			// x->width--;
+		}
+		x->flag != '-' ? write (1, "\0", 1) : 0;
 		x->len++;
 	}
 	x->raw_str = arg;
