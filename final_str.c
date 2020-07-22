@@ -14,8 +14,12 @@
 
 void	cero_flag(t_data *x)
 {
-	if (x->flag == '0' && x->type != 'c'
-		&& !(x->type == 'd' && x->precision > 0))
+	// int		is_num;
+
+	// is_num = 0;
+	// if (x->type == 'd' || x->type == 'u')
+	// 	is_num = 1;
+	if (x->flag == '0' && x->type != 'c' && x->precision < 0)
 	{
 		x->final_str = malloc(x->width * sizeof(char) + 1);
 		x->final_str[x->width] = '\0';

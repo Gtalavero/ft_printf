@@ -1,6 +1,4 @@
-671
-
-
+*Probar el caso que hablaban por telegram
 *Bug en los "d" negativos en los return. Fijarse en final_str.c -> d_is_negative
 
 *Mirar al llamar a ceroflag en final_str los malloc

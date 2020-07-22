@@ -57,7 +57,10 @@ void	x_X_p_conversion(t_data *x)
 			x->raw_str[i] = ft_tolower(x->raw_str[i]);
 			i++;
 		}
-		x->raw_str = ft_strjoin("0x", x->raw_str);
+		if (x->raw_str[0] == '0' && x->raw_str[i] == '\0' && x->precision == 0)
+			x->raw_str = ft_strjoin(x->raw_str, "x");
+		else
+			x->raw_str = ft_strjoin("0x", x->raw_str);
 	}
 	if (x->type == 'x' || x->type == 'X')
 	{
