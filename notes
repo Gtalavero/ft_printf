@@ -1,5 +1,5 @@
 *Probar el caso que hablaban por telegram
-*Bug en los "d" negativos en los return. Fijarse en final_str.c -> d_is_negative
+*Bug *test 186 y 282
 
 *Mirar al llamar a ceroflag en final_str los malloc
 *Limpiar donde use la conversion "i" ya que ahora la igualo a d

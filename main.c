@@ -12,11 +12,12 @@
 
 #include "ft_printf.h"
 
+// test 
 int		main(void)
 {
-	ft_printf("%-6.5d", -8473);
-	ft_printf("\n");
-	printf("%-6.5d", -8473);
+	ft_printf("%0-3.7d", -2375);
+	//ft_printf("\n");
+	//printf("%-6.5d", -8473);
 
 
 	// printf("\n\nLONGITUD FAKE: %d\nLONGITUD ORIG: %d", lenfake, lenori);

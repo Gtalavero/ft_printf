@@ -31,6 +31,7 @@ void	cero_flag(t_data *x)
 			ft_memset(x->final_str, ' ', x->width);
 		if (x->flag == '-' && x->type == 'd' && x->precision > 0 && x->is_negative
 			&& x->width > x->precision)
+		// if (x->flag == '-' && x->type == 'd' && x->precision > 0 && x->is_negative)
 			x->final_str[x->width - 1] = '\0';
 		else
 			x->final_str[x->width] = '\0';
