@@ -14,11 +14,8 @@
 
 void	cero_flag(t_data *x)
 {
-	// int		is_num;
-
-	// is_num = 0;
-	// if (x->type == 'd' || x->type == 'u')
-	// 	is_num = 1;
+	if ((x->type == 'd' || x->type == 'u') && x->flag == '0' && x->precision > 0)
+		x->flag = '\0';
 	if (x->flag == '0' && x->type != 'c' && x->precision < 0)
 	{
 		x->final_str = malloc(x->width * sizeof(char) + 1);
@@ -28,11 +25,15 @@ void	cero_flag(t_data *x)
 	else
 	{
 		x->final_str = malloc(x->width * sizeof(char));
-		x->final_str[x->width] = '\0';
 		if (x->is_negative == 1)
-			ft_memset(x->final_str, ' ', x->width - 1);
+			ft_memset(x->final_str, ' ', x->width - 1); //x->width - 1
 		else
 			ft_memset(x->final_str, ' ', x->width);
+		if (x->flag == '-' && x->type == 'd' && x->precision > 0 && x->is_negative
+			&& x->width > x->precision)
+			x->final_str[x->width - 1] = '\0';
+		else
+			x->final_str[x->width] = '\0';
 	}
 }
 
@@ -45,6 +46,8 @@ void	minus_flag(t_data *x)
 		i = 0;
 		while(x->raw_str_len--)
 			x->final_str[i++] = *x->raw_str++;
+		// if (x->type == 'd' || x->type == 'u')
+		// 	x->final_str[x->width - 1] = '\0';
 	}
 	else
 	{
@@ -67,6 +70,7 @@ void	d_is_negative(t_data *x)
 		{
 			x->final_str = ft_strjoin("-", x->final_str);
 			//x->len++; //fallo aqui en algunas casuisticas
+			//x->final_str[ft_strlen(x->final_str)] = '\0'; //
 		}
 	}
 	else 

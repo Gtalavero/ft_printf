@@ -22,7 +22,7 @@ char		*ft_itoa_minus(int n, t_data *x)
 	if (nb < 0)
 	{
 		x->is_negative = 1;
-		//x->width++;
+		//x->width--;
 		nb = nb * -1;
 	}
 	i = ft_numlen(nb, 10);

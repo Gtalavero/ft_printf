@@ -37,7 +37,11 @@ void	get_width(t_data *x)
 		x->format++;
 		x->width = va_arg(x->ap, int);
 		if (x->width < 0)
+		{
 			x->width *= -1;
+			//x->flag == '0' && x->type == 'd' ? x->flag = '-' : 0;
+			x->flag = '-';
+		}
 	}
 	if (ft_isdigit(*x->format))
 	{

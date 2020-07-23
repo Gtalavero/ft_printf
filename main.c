@@ -14,9 +14,9 @@
 
 int		main(void)
 {
-	ft_printf("%2.9p", 1234);
+	ft_printf("%-6.5d", -8473);
 	ft_printf("\n");
-	printf("%2.9p", 1234);
+	printf("%-6.5d", -8473);
 
 
 	// printf("\n\nLONGITUD FAKE: %d\nLONGITUD ORIG: %d", lenfake, lenori);

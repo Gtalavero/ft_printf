@@ -7,42 +7,6 @@ WARNING: The return values reported here may be bugged on some systems.
           the function output--only the reported return value.
 
 
-Test 195 (i_prec_width_fn_neg_zp) : FAILED.
-    First line of code: {return test("%03.7i", -2375);}
-      expected return value : 8
-      your return value     : 7
-      expected output : "-0002375"
-      your output     : "-002375"
-      expected (nonprintable as hex) : "-0002375"
-      actual   (nonprintable as hex) : "-002375"
-
-Test 202 (i_prec_width_nf_neg_ljzp_ignoreflag) : FAILED.
-    First line of code: {return test("%0-8.3i", -8473);}
-      expected return value : 8
-      your return value     : 9
-      expected output : "-8473   "
-      your output     : "-8473   À"
-      expected (nonprintable as hex) : "-8473   "
-      actual   (nonprintable as hex) : "-8473   \xc0"
-
-Test 262 (d_prec_width_nofit_fit_neg_lj) : FAILED.
-    First line of code: {return test("%-8.3d", -8473);}
-      expected return value : 8
-      your return value     : 9
-      expected output : "-8473   "
-      your output     : "-8473   À"
-      expected (nonprintable as hex) : "-8473   "
-      actual   (nonprintable as hex) : "-8473   \xc0"
-
-Test 273 (d_prec_width_fn_neg_zp) : FAILED.
-    First line of code: {return test("%03.7d", -2375);}
-      expected return value : 8
-      your return value     : 7
-      expected output : "-0002375"
-      your output     : "-002375"
-      expected (nonprintable as hex) : "-0002375"
-      actual   (nonprintable as hex) : "-002375"
-
 Test 433 (p_ftfc_literal_2w_prec9_undefbehav) : FAILED.
     First line of code: {return test("%2.9p
 ", 1234);}
@@ -63,31 +27,4 @@ Test 434 (p_ftfc_zero_prec5_undefbehav) : FAILED.
       your output     : "0x0"
       expected (nonprintable as hex) : "0x00000"
       actual   (nonprintable as hex) : "0x0"
-
-Test 736 (new2019_negstar_1) : FAILED.
-    First line of code: {return test("%*s", -32, "abc");}
-      expected return value : 35
-      your return value     : 35
-      expected output : "abc                             "
-      your output     : "                             abc"
-      expected (nonprintable as hex) : "abc                             "
-      actual   (nonprintable as hex) : "                             abc"
-
-Test 742 (new2019_negstar_7) : FAILED.
-    First line of code: {return test("%*i", -14, 94827);}
-      expected return value : 15
-      your return value     : 15
-      expected output : "94827         "
-      your output     : "         94827"
-      expected (nonprintable as hex) : "94827         "
-      actual   (nonprintable as hex) : "         94827"
-
-Test 744 (new2019_negstar_9) : FAILED.
-    First line of code: {return test("%0*i", -7, -54);}
-      expected return value : 7
-      your return value     : 7
-      expected output : "-54    "
-      your output     : "-000054"
-      expected (nonprintable as hex) : "-54    "
-      actual   (nonprintable as hex) : "-000054"
 
