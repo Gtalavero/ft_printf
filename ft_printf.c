@@ -31,10 +31,11 @@ int		ft_printf(const char *format, ...)
 	t_data	x;
 
 	va_start(x.ap, format);
-	//x.format = (char *)format;
+	x.format = (char *)format;
+	//x.format[ft_strlen(x.format) + 1] = '\0';
 	//x.format = ft_strjoin((char *)format, "\0"); //no segfault pero leaks
 	//x.format = malloc(sizeof(char) * ft_strlen(format) + 1);
-	x.format = ft_strjoin((char*)format, "\0");
+	//x.format = ft_strjoin((char*)format, "\0");
 	ini_struct(&x);
 	//free((char *)x.format);
 	while (*x.format != '\0')
@@ -43,7 +44,7 @@ int		ft_printf(const char *format, ...)
 		{
 			x.format++;
 			fillstruct(&x);
-			x.format++;
+			//x.format++;
 		}
 		else
 		{

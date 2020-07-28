@@ -14,8 +14,8 @@
 
 int		main(void)
 {
-	ft_printf("hello");
-
-	system("leaks a.out");
+	ft_printf("%5");
+	//printf("%5");
+	//system("leaks a.out");
 	return (0);
 }

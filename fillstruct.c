@@ -98,4 +98,5 @@ void	fillstruct(t_data *x)
 	x->type == 'x' || x->type == 'X' ? x_X_conversion(x) : NULL;
 	x->type == 'd' || x->type == 'u' ? d_i_u_conversion(x) : NULL;
 	fill_final_str(x);
+	*x->format != '\0' ? x->format++ : 0;
 }
