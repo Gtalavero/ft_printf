@@ -14,8 +14,10 @@
 
 int		main(void)
 {
-	ft_printf("%5");
+	//char	*str;
+	ft_printf("hello, %.3s.", "gavin");
+	//str = ft_substr("gavin", 0, -1);
 	//printf("%5");
-	//system("leaks a.out");
+	system("leaks a.out");
 	return (0);
 }

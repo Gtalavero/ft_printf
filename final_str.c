@@ -53,6 +53,7 @@ void	minus_flag(t_data *x)
 		while (i < x->width)
 			x->final_str[i++] = *x->raw_str++;
 	}
+	//x->type == 's' ? free(x->raw_str) : NULL;
 }
 
 void	d_is_negative(t_data *x)
@@ -77,7 +78,7 @@ void	d_is_negative(t_data *x)
 
 void	fill_final_str(t_data *x)
 {
-	x->type == 's' ? x->raw_str = ft_substr(x->raw_str, 0, x->precision) : NULL;
+	
 	if (!(x->raw_str))
 	{
 		x->raw_str = "(null)";

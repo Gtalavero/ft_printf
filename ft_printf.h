@@ -36,6 +36,7 @@ typedef struct	s_data
 
 int				ft_printf(const char *format, ...);
 void			fillstruct(t_data *x);
+void			s_conversion(t_data *x);
 void			c_conversion(t_data *x);
 void			s_conversion(t_data *x);
 void			d_i_u_conversion(t_data *x);

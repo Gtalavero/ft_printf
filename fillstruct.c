@@ -93,7 +93,7 @@ void	fillstruct(t_data *x)
 	get_precision(x);
 	get_type(x);
 	x->type == 'c' || x->type == '%' ? c_conversion(x) : NULL;
-	x->type == 's' ? x->raw_str = va_arg(x->ap, char *) : NULL;
+	x->type == 's' ? s_conversion(x) : NULL;
 	x->type == 'p' ? p_conversion(x) : NULL;
 	x->type == 'x' || x->type == 'X' ? x_X_conversion(x) : NULL;
 	x->type == 'd' || x->type == 'u' ? d_i_u_conversion(x) : NULL;

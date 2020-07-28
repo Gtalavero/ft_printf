@@ -41,6 +41,14 @@ char		*ft_itoa_minus(int n, t_data *x)
 	return (str);
 }
 
+void	s_conversion(t_data *x)
+{
+	x->raw_str = va_arg(x->ap, char *);
+	if (x->raw_str)
+		x->raw_str_len = (int)ft_strlen(x->raw_str);
+	if (x->precision != -1 && x->precision < x->raw_str_len)
+		x->raw_str = ft_substr(x->raw_str, 0, x->precision);
+}
 void	p_conversion(t_data *x)
 {
 	int		i;
