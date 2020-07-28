@@ -35,13 +35,12 @@ typedef struct	s_data
 }				t_data;
 
 int				ft_printf(const char *format, ...);
-int				fillstruct(t_data *x);
+void			fillstruct(t_data *x);
 void			c_conversion(t_data *x);
 void			s_conversion(t_data *x);
-void			d_i_conversion(t_data *x);
 void			d_i_u_conversion(t_data *x);
-void			u_conversion(t_data *x);
-void			x_X_p_conversion(t_data *x);
+void			p_conversion(t_data *x);
+void			x_X_conversion(t_data *x);
 void			fill_final_str(t_data *x);
 
 #endif

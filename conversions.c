@@ -22,7 +22,6 @@ char		*ft_itoa_minus(int n, t_data *x)
 	if (nb < 0)
 	{
 		x->is_negative = 1;
-		//x->width--;
 		nb = nb * -1;
 	}
 	i = ft_numlen(nb, 10);
@@ -34,7 +33,6 @@ char		*ft_itoa_minus(int n, t_data *x)
 		str = ft_calloc(2, sizeof(char));
 		str[0] = 48;
 	}
-
 	while (nb > 0)
 	{
 		str[i--] = nb % 10 + '0';
@@ -43,59 +41,54 @@ char		*ft_itoa_minus(int n, t_data *x)
 	return (str);
 }
 
-void	x_X_p_conversion(t_data *x)
+void	p_conversion(t_data *x)
+{
+	int		i;
+
+	i = 0;
+	x->raw_str = ft_itoa_base(va_arg(x->ap, unsigned long int), 16);
+	while (x->raw_str[i])
+	{
+		x->raw_str[i] = ft_tolower(x->raw_str[i]);
+		i++;
+	}
+	if (x->raw_str[0] == '0' && x->raw_str[i] == '\0' && x->precision == 0)
+		x->raw_str = ft_strjoin(x->raw_str, "x");
+	else
+	{
+		if (x->precision > 0 && x->raw_str != NULL)
+		{
+			i = x->precision - i;
+			while(i-- > 0)
+				x->raw_str = ft_strjoin("0", x->raw_str);
+		}
+		x->raw_str = ft_strjoin("0x", x->raw_str);
+	}
+}
+
+void	x_X_conversion(t_data *x)
 {
 	int	i;
-	int	raw_str_len;
 	
 	i = 0;
-	raw_str_len = 0;
-	if (x->type == 'p')
+	if (x->precision != 0)
+		x->raw_str = ft_itoa_base(va_arg(x->ap, unsigned int), 16);
+	while (x->type == 'x' && x->raw_str[i])
 	{
-		x->raw_str = ft_itoa_base(va_arg(x->ap, unsigned long int), 16);
-		while (x->raw_str[i])
-		{
-			x->raw_str[i] = ft_tolower(x->raw_str[i]);
-			i++;
-		}
-		if (x->raw_str[0] == '0' && x->raw_str[i] == '\0' && x->precision == 0)
-			x->raw_str = ft_strjoin(x->raw_str, "x");
-		else
-		{
-			if (x->precision > 0 && x->raw_str != NULL)
-			{
-				i = x->precision - i;
-				while(i-- > 0)
-					x->raw_str = ft_strjoin("0", x->raw_str);
-			}
-			x->raw_str = ft_strjoin("0x", x->raw_str);
-		}
+		x->raw_str[i] = ft_tolower(x->raw_str[i]);
+		i++;
 	}
-	if (x->type == 'x' || x->type == 'X')
-	{
-		if (x->precision != 0)
-			x->raw_str = ft_itoa_base(va_arg(x->ap, unsigned int), 16);
-		if (x->type == 'x')
-			while (x->raw_str[i])
-			{
-				x->raw_str[i] = ft_tolower(x->raw_str[i]);
-				i++;
-			}
-		raw_str_len = ft_strlen(x->raw_str);
-		while (x->precision > raw_str_len)
-		{
-			x->precision--;
-			x->raw_str = ft_strjoin("0", x->raw_str);
-		}
-		if (x->is_negative == 1)
-			x->raw_str = ft_strjoin("-", x->raw_str);
-	}
+	i = ft_strlen(x->raw_str);
+	while (x->precision > i++)
+		x->raw_str = ft_strjoin("0", x->raw_str);
+	if (x->is_negative == 1)
+		x->raw_str = ft_strjoin("-", x->raw_str);
 }
 
 void	d_i_u_conversion(t_data *x)
 {
 	int		raw_str_len;
-	int		prec;
+	int		i;
 
 	if (x->precision > 0 || x->precision == -1)
 	{
@@ -104,12 +97,9 @@ void	d_i_u_conversion(t_data *x)
 		else if (x->type == 'u')
 			x->raw_str = ft_itoa_base(va_arg(x->ap, unsigned int), 10);
 		raw_str_len = ft_strlen(x->raw_str);
-		prec = x->precision;
-		while (prec > raw_str_len)
-		{
-			prec--;
+		i = x->precision;
+		while (i-- > raw_str_len)
 			x->raw_str = ft_strjoin("0", x->raw_str);
-		}
 	}
 }
 
@@ -126,7 +116,6 @@ void	c_conversion(t_data *x)
 		{
 			x->flag == '0' ? write(1, "0", 1) : write(1, " ", 1);
 			x->len++;
-			// x->width--;
 		}
 		x->flag != '-' ? write (1, "\0", 1) : 0;
 		x->len++;

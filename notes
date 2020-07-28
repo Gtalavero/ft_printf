@@ -1,8 +1,11 @@
-*Probar el caso que hablaban por telegram
-*Bug *test 186 y 282
+mallocs:
+¿protegidos?
+
+
+*printf("%.0d", -8472); caso del test #208
+
 
 *Mirar al llamar a ceroflag en final_str los malloc
-*Limpiar donde use la conversion "i" ya que ahora la igualo a d
 *Leaks y demás
 
 ESTRUCTURA

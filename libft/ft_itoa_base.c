@@ -34,10 +34,7 @@ char	*ft_itoa_base(unsigned long int value, int base)
 	if (!(result = (char*)malloc(sizeof(*result) * (size + 1))))
 		return (NULL);
 	result[size--] = '\0';
-	// if (value == '\0')
-	// 	result[0] = '\0';
-	// else
-		result[0] = '0';
+	result[0] = '0';
 	while (number > 0)
 	{
 		result[size--] = base_characters[number % base];

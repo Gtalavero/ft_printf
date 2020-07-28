@@ -18,13 +18,9 @@ void	get_flag(t_data *x)
 	while (*x->format == '0' || *x->format == '-')
 	{
 		if (*x->format == '-')
-		{
 			x->flag = '-';
-		}
 		else if (x->flag != '-')
-		{
 			x->flag = '0';
-		}
 		x->format++;
 	}
 }
@@ -39,7 +35,6 @@ void	get_width(t_data *x)
 		if (x->width < 0)
 		{
 			x->width *= -1;
-			//x->flag == '0' && x->type == 'd' ? x->flag = '-' : 0;
 			x->flag = '-';
 		}
 	}
@@ -88,12 +83,10 @@ void		get_type(t_data	*x)
 			x->type = conver[i];
 		i++;
 	}
-	// x->type == 'i' ? x->type = 'd' : 0;
-	if (x->type == 'i')
-		x->type = 'd';
+	x->type == 'i' ? x->type = 'd' : 0;
 }
 
-int		fillstruct(t_data *x)
+void	fillstruct(t_data *x)
 {
 	get_flag(x);
 	get_width(x);
@@ -101,10 +94,8 @@ int		fillstruct(t_data *x)
 	get_type(x);
 	x->type == 'c' || x->type == '%' ? c_conversion(x) : NULL;
 	x->type == 's' ? x->raw_str = va_arg(x->ap, char *) : NULL;
-	if (x->type == 'p' || x->type == 'x' || x->type == 'X')
-		x_X_p_conversion(x);
-	if (x->type == 'd' || x->type == 'u')
-		 d_i_u_conversion(x);
+	x->type == 'p' ? p_conversion(x) : NULL;
+	x->type == 'x' || x->type == 'X' ? x_X_conversion(x) : NULL;
+	x->type == 'd' || x->type == 'u' ? d_i_u_conversion(x) : NULL;
 	fill_final_str(x);
-	return (1);
 }
