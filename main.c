@@ -14,10 +14,8 @@
 
 int		main(void)
 {
-	// char *s;
-	ft_printf("this %i number", 0);
-	// s = malloc(sizeof(char) * 4);
-	// s = ft_strjoin("-", "267");
+	ft_printf("%.5i", 2);
+	ft_printf("\n\n");
 	system("leaks a.out");
 	return (0);
 }
