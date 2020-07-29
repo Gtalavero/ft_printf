@@ -49,6 +49,7 @@ void	s_conversion(t_data *x)
 	if (x->precision != -1 && x->precision < x->raw_str_len)
 		x->raw_str = ft_substr(x->raw_str, 0, x->precision);
 }
+
 void	p_conversion(t_data *x)
 {
 	int		i;

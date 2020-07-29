@@ -1,3 +1,10 @@
+valgrind --leak-check=full --show-leak-kinds=definite --track-origins=yes ./a.out
+
+
+Test 336 (x_basic_pos) : FAILED.
+    First line of code: {return test("this %x number", 17);}
+    Timed out
+
 mallocs:
 ¿protegidos?
 

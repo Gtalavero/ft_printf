@@ -37,23 +37,49 @@ void	cero_flag(t_data *x)
 	}
 }
 
+// void	minus_flag(t_data *x)
+// {
+// 	int		i;
+
+// 	i = 0;
+// 	if (x->flag == '-')
+// 	{
+// 		while(x->raw_str_len--)
+// 			x->final_str[i++] = *x->raw_str++;
+// 	}
+// 	else
+// 	{
+// 		i = x->width - x->raw_str_len;
+// 		while (i < x->width)
+// 			x->final_str[i++] = *x->raw_str++;
+// 	}
+// 	//x->type == 's' ? free(x->raw_str) : NULL;
+// }
+
 void	minus_flag(t_data *x)
 {
 	int		i;
+	int		j;
 
 	i = 0;
+	j = 0;
 	if (x->flag == '-')
 	{
 		while(x->raw_str_len--)
-			x->final_str[i++] = *x->raw_str++;
+		{
+			x->final_str[i] = x->raw_str[i];
+			i++;
+		}
 	}
 	else
 	{
 		i = x->width - x->raw_str_len;
 		while (i < x->width)
-			x->final_str[i++] = *x->raw_str++;
+			x->final_str[i++] = x->raw_str[j++];
 	}
 	//x->type == 's' ? free(x->raw_str) : NULL;
+	// if (x->raw_str) //
+	// 	free(x->raw_str);
 }
 
 void	d_is_negative(t_data *x)
@@ -78,7 +104,6 @@ void	d_is_negative(t_data *x)
 
 void	fill_final_str(t_data *x)
 {
-	
 	if (!(x->raw_str))
 	{
 		x->raw_str = "(null)";
