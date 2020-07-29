@@ -24,6 +24,7 @@ void	ini_struct(t_data *x)
 	x->width = 0;
 	x->type = '\0';
 	x->precision = 0;
+	x->raw_alloc = 0;
 }
 
 int		ft_printf(const char *format, ...)

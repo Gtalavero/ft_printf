@@ -24,19 +24,22 @@ char		*ft_itoa_minus(int n, t_data *x)
 		x->is_negative = 1;
 		nb = nb * -1;
 	}
+	if (nb != 0)
+	{
 	i = ft_numlen(nb, 10);
-	if (!(str = malloc(i * sizeof(char) + 1)))
-		return (0);
-	str[i--] = 0;
-	if (nb == 0)
+		if (!(str = malloc(i * sizeof(char) + 1)))
+			return (0);
+		str[i--] = 0;
+		while (nb > 0)
+		{
+			str[i--] = nb % 10 + '0';
+			nb = nb / 10;
+		}
+	}
+	else
 	{
 		str = ft_calloc(2, sizeof(char));
 		str[0] = 48;
-	}
-	while (nb > 0)
-	{
-		str[i--] = nb % 10 + '0';
-		nb = nb / 10;
 	}
 	return (str);
 }
@@ -47,7 +50,10 @@ void	s_conversion(t_data *x)
 	if (x->raw_str)
 		x->raw_str_len = (int)ft_strlen(x->raw_str);
 	if (x->precision != -1 && x->precision < x->raw_str_len)
+	{
 		x->raw_str = ft_substr(x->raw_str, 0, x->precision);
+		x->raw_alloc = 1;
+	}
 }
 
 void	p_conversion(t_data *x)
@@ -80,6 +86,7 @@ void	x_X_conversion(t_data *x)
 	int	i;
 	
 	i = 0;
+	x->precision > 0 || (x->precision == -1) ? x->raw_alloc = 1 : 0;
 	if (x->precision != 0)
 		x->raw_str = ft_itoa_base(va_arg(x->ap, unsigned int), 16);
 	while (x->type == 'x' && x->raw_str[i])
@@ -101,6 +108,7 @@ void	d_i_u_conversion(t_data *x)
 
 	if (x->precision > 0 || x->precision == -1)
 	{
+		x->raw_alloc = 1;
 		if (x->type == 'd')
 			x->raw_str = ft_itoa_minus(va_arg(x->ap, int), x);
 		else if (x->type == 'u')
@@ -116,6 +124,8 @@ void	c_conversion(t_data *x)
 {
 	char	arg[2];
 
+	// if(!(arg = malloc(sizeof(char) * 2)))
+		// return;
 	x->type == '%' ? arg[0] = '%' : (arg[0] = va_arg(x->ap, int));
 	arg[1] = '\0';
 	if (arg[0] == '\0')

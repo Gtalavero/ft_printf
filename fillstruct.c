@@ -88,6 +88,7 @@ void		get_type(t_data	*x)
 
 void	fillstruct(t_data *x)
 {
+	x->raw_alloc = 0;
 	get_flag(x);
 	get_width(x);
 	get_precision(x);

@@ -31,6 +31,7 @@ typedef struct	s_data
 	int		raw_str_len;
 	char	*final_str;
 	int		is_negative;
+	int		raw_alloc;
 
 }				t_data;
 

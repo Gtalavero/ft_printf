@@ -14,10 +14,10 @@
 
 int		main(void)
 {
-	//char	*str;
-	ft_printf("hello, %.3s.", "gavin");
-	//str = ft_substr("gavin", 0, -1);
-	//printf("%5");
+	// char *s;
+	ft_printf("this %i number", 0);
+	// s = malloc(sizeof(char) * 4);
+	// s = ft_strjoin("-", "267");
 	system("leaks a.out");
 	return (0);
 }

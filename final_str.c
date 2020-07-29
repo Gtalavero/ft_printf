@@ -78,8 +78,8 @@ void	minus_flag(t_data *x)
 			x->final_str[i++] = x->raw_str[j++];
 	}
 	//x->type == 's' ? free(x->raw_str) : NULL;
-	// if (x->raw_str) //
-	// 	free(x->raw_str);
+	if (x->raw_alloc) //
+		free(x->raw_str);
 }
 
 void	d_is_negative(t_data *x)
@@ -92,7 +92,11 @@ void	d_is_negative(t_data *x)
 		if (x->flag == '0' && x->final_str[0] == '0')
 			x->final_str[0] = '-';
 		else
-			x->final_str = ft_strjoin("-", x->final_str);
+		{
+			write(1, "-", 1);
+			x->len++;
+			// x->final_str = ft_strjoin("-", x->final_str); // da leaks
+		}
 	}
 	else 
 	{
@@ -108,6 +112,7 @@ void	fill_final_str(t_data *x)
 	{
 		x->raw_str = "(null)";
 		x->raw_str = ft_substr(x->raw_str, 0, x->precision);
+		x->raw_alloc = 1;
 	}
 	x->raw_str_len = ft_strlen(x->raw_str);
 	x->width < x->raw_str_len ? x->width = x->raw_str_len : 0;
