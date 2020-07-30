@@ -1,5 +1,10 @@
 valgrind --leak-check=full --show-leak-kinds=definite --track-origins=yes ./a.out
 
+Revisar petadas de los "p", sobre todo 442 y 447 fallan muy de vez en Cuando (parece que ya van)
+
+440
+445
+447
 
 Test 336 (x_basic_pos) : FAILED.
     First line of code: {return test("this %x number", 17);}

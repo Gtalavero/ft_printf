@@ -14,8 +14,11 @@
 
 int		main(void)
 {
-	ft_printf("%.5i", 2);
-	ft_printf("\n\n");
-	system("leaks a.out");
+	int a1 = 0;
+	// ft_printf("%32p%32p%32p%32p%32p", &a1, &a2, &a3, &a4, &a5);
+	ft_printf("%16p", &a1);
+	//ft_printf("%");
+	printf("\n%16p", &a1);
+	// system("leaks a.out");
 	return (0);
 }

@@ -15,15 +15,15 @@
 void	ini_struct(t_data *x)
 {
 	
-	x->len = 0;
-	x->raw_str = "\0";
+	//x->len = 0;
 	x->flag = '\0';
-	x->final_str = "\0";
-	x->raw_str_len = 0;
-	x->is_negative = 0;
 	x->width = 0;
-	x->type = '\0';
 	x->precision = 0;
+	x->type = '\0';
+	x->raw_str = "\0";
+	x->raw_str_len = 0;
+	x->final_str = "\0";
+	x->is_negative = 0;
 	x->raw_alloc = 0;
 }
 
@@ -39,10 +39,12 @@ int		ft_printf(const char *format, ...)
 	//x.format = ft_strjoin((char*)format, "\0");
 	ini_struct(&x);
 	//free((char *)x.format);
+	x.len = 0; //
 	while (*x.format != '\0')
 	{
 		if (*x.format == '%')
 		{
+			ini_struct(&x);
 			x.format++;
 			fillstruct(&x);
 			//x.format++;
