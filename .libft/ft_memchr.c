@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtalaver <gtalaver@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/28 17:48:00 by gtalaver          #+#    #+#             */
-/*   Updated: 2019/12/10 14:19:16 by gtalaver         ###   ########.fr       */
+/*   Created: 2019/11/20 12:20:26 by gtalaver          #+#    #+#             */
+/*   Updated: 2019/12/10 13:58:50 by gtalaver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** Outputs the string "s" to the given file descriptor "fd".
+** Scans the initial "n" bytes of "s" for the first instance of "c"
 */
 
-void	ft_putstr_fd(char *s, int fd)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	if (s)
-		write(fd, s, ft_strlen(s));
+	unsigned char	*str;
+	size_t			i;
+
+	str = (unsigned char *)s;
+	c = (unsigned char)c;
+	i = 0;
+	while (i < n)
+	{
+		if (str[i] == c)
+			return ((void *)str + i);
+		i++;
+	}
+	return (0);
 }

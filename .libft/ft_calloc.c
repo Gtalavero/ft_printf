@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_numlen.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtalaver <gtalaverodev@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/01 20:26:39 by gtalaver          #+#    #+#             */
-/*   Updated: 2020/07/30 15:42:57 by gtalaver         ###   ########.fr       */
+/*   Created: 2019/11/20 17:30:38 by gtalaver          #+#    #+#             */
+/*   Updated: 2019/12/11 15:12:44 by gtalaver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** [ESP]
-** Cuenta los dígitos de un número "value" dependiendo de su base
-**
 ** [ENG]
-** Count the digits of a number "value" depending of its base
+** Allocates memory for an array of "n" elements of "size" bytes each and
+** returns a pointer to the allocated memory
+** [ESP]
+** Reserva memoria para un array de "n" elementos de "size" bytes cada uno y
+** devuelve un puntero a la memoria reservada
 */
 
-unsigned int	ft_numlen(long value, int base)
+void	*ft_calloc(size_t n, size_t size)
 {
-	int	size;
+	void	*ptr;
 
-	size = 1;
-	if (base != 10 && value < 0)
-		value = -value;
-	if (value < 0)
-		size++;
-	while (value / base)
-	{
-		size++;
-		value /= base;
-	}
-	return (size);
+	if (!(ptr = (char *)malloc(size * n)))
+		return (0);
+	ft_memset(ptr, 0, n * size);
+	return (ptr);
 }

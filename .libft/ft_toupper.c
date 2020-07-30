@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtalaver <gtalaver@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/28 17:48:00 by gtalaver          #+#    #+#             */
-/*   Updated: 2019/12/10 14:19:16 by gtalaver         ###   ########.fr       */
+/*   Created: 2019/11/13 14:38:52 by gtalaver          #+#    #+#             */
+/*   Updated: 2019/12/10 19:39:49 by gtalaver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** Outputs the string "s" to the given file descriptor "fd".
+** If the character passed as an argument is a lowercase, convert to upper
 */
 
-void	ft_putstr_fd(char *s, int fd)
+int		ft_toupper(int c)
 {
-	if (s)
-		write(fd, s, ft_strlen(s));
+	return ((c >= 97 && c <= 122) ? c - 32 : c);
 }

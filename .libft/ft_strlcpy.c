@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_numlen.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtalaver <gtalaverodev@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/01 20:26:39 by gtalaver          #+#    #+#             */
-/*   Updated: 2020/07/30 15:42:57 by gtalaver         ###   ########.fr       */
+/*   Created: 2019/11/14 16:09:10 by gtalaver          #+#    #+#             */
+/*   Updated: 2019/12/11 15:20:48 by gtalaver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** [ESP]
-** Cuenta los dígitos de un número "value" dependiendo de su base
-**
-** [ENG]
-** Count the digits of a number "value" depending of its base
+** Copies "dstsize" of the string "src" into "dst" and return the total
+** lenght of the result string.
 */
 
-unsigned int	ft_numlen(long value, int base)
+size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	int	size;
+	unsigned int	i;
+	int				counter;
 
-	size = 1;
-	if (base != 10 && value < 0)
-		value = -value;
-	if (value < 0)
-		size++;
-	while (value / base)
+	i = 0;
+	if (!src)
+		return (0);
+	counter = (unsigned int)ft_strlen(src);
+	if (!dstsize)
+		return (counter);
+	while (src[i] && i < (dstsize - 1))
 	{
-		size++;
-		value /= base;
+		dst[i] = src[i];
+		i++;
 	}
-	return (size);
+	dst[i] = '\0';
+	return (counter);
 }

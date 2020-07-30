@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtalaver <gtalaver@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/28 17:48:00 by gtalaver          #+#    #+#             */
-/*   Updated: 2019/12/10 14:19:16 by gtalaver         ###   ########.fr       */
+/*   Created: 2019/11/06 12:30:50 by gtalaver          #+#    #+#             */
+/*   Updated: 2019/12/10 17:42:44 by gtalaver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** Outputs the string "s" to the given file descriptor "fd".
+** Return the number of characters of a char string.
 */
 
-void	ft_putstr_fd(char *s, int fd)
+size_t		ft_strlen(const char *str)
 {
-	if (s)
-		write(fd, s, ft_strlen(s));
+	int i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: gtalaver <gtalaverodev@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/28 19:09:25 by gtalaver          #+#    #+#             */
-/*   Updated: 2020/07/15 20:37:20 by gtalaver         ###   ########.fr       */
+/*   Updated: 2020/07/30 15:39:27 by gtalaver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,25 +122,11 @@ void	x_X_conversion(t_data *x)
 // 	}
 // }
 
-char	*ft_strjoin_free(char const *s1, char const *s2, int to_free)
-{
-	char *res;	
-	
-	res = ft_strjoin(s1, s2);
-	if (to_free & 1)
-		free((void **)s1);
-	if (to_free & 2)
-		free((void **)s2);
-	return (res);
-}
-
 void	d_i_u_conversion(t_data *x)
 {
 	int		raw_str_len;
 	int		i;
-	char	*auxstr;
 
-	auxstr = "\0";
 	if (x->precision > 0 || x->precision == -1)
 	{
 		x->raw_alloc = 1;

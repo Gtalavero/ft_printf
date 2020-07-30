@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtalaver <gtalaver@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/28 17:48:00 by gtalaver          #+#    #+#             */
-/*   Updated: 2019/12/10 14:19:16 by gtalaver         ###   ########.fr       */
+/*   Created: 2019/11/21 13:39:47 by gtalaver          #+#    #+#             */
+/*   Updated: 2019/12/10 14:25:26 by gtalaver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** Outputs the string "s" to the given file descriptor "fd".
+** Returns a new string result of the concatenation of 's1' and 's2'
 */
 
-void	ft_putstr_fd(char *s, int fd)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	if (s)
-		write(fd, s, ft_strlen(s));
+	char	*s;
+	int		i;
+
+	i = 0;
+	if (!s1 || !s2)
+		return (0);
+	if (!(s = (char*)malloc(sizeof(*s) * (ft_strlen(s1) + ft_strlen(s2) + 1))))
+		return (0);
+	while (*s1)
+		s[i++] = *s1++;
+	while (*s2)
+		s[i++] = *s2++;
+	s[i] = 0;
+	return (s);
 }

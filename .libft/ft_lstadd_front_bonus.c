@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtalaver <gtalaver@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/28 17:48:00 by gtalaver          #+#    #+#             */
-/*   Updated: 2019/12/10 14:19:16 by gtalaver         ###   ########.fr       */
+/*   Created: 2019/12/05 16:08:42 by gtalaver          #+#    #+#             */
+/*   Updated: 2019/12/10 13:01:44 by gtalaver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** Outputs the string "s" to the given file descriptor "fd".
+** [ENG]
+** Adds the element new at the beginning of the list
+** [ESP]
+** Añade el elemento "new" al principio de la lista "alst"
 */
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_lstadd_front(t_list **alst, t_list *new)
 {
-	if (s)
-		write(fd, s, ft_strlen(s));
+	if (*alst)
+		new->next = *alst;
+	*alst = new;
 }

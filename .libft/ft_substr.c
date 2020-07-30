@@ -38,6 +38,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		tab[count] = s[start + count];
 		count++;
 	}
+	s = "\0";
 	tab[count] = '\0';
 	return (tab);
 }

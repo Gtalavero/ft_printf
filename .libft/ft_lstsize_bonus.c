@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtalaver <gtalaver@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/28 17:48:00 by gtalaver          #+#    #+#             */
-/*   Updated: 2019/12/10 14:19:16 by gtalaver         ###   ########.fr       */
+/*   Created: 2019/12/05 16:09:35 by gtalaver          #+#    #+#             */
+/*   Updated: 2019/12/10 13:53:57 by gtalaver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** Outputs the string "s" to the given file descriptor "fd".
+**	Counts the number of elements int a list.
 */
 
-void	ft_putstr_fd(char *s, int fd)
+int		ft_lstsize(t_list *lst)
 {
-	if (s)
-		write(fd, s, ft_strlen(s));
+	int	i;
+
+	i = 0;
+	if (lst)
+	{
+		while (lst)
+		{
+			i++;
+			lst = lst->next;
+		}
+	}
+	return (i);
 }

@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_numlen.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtalaver <gtalaverodev@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/01 20:26:39 by gtalaver          #+#    #+#             */
-/*   Updated: 2020/07/30 15:42:57 by gtalaver         ###   ########.fr       */
+/*   Created: 2019/11/25 18:11:58 by gtalaver          #+#    #+#             */
+/*   Updated: 2019/12/11 15:11:38 by gtalaver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** [ESP]
-** Cuenta los dígitos de un número "value" dependiendo de su base
-**
 ** [ENG]
-** Count the digits of a number "value" depending of its base
+** Erases the data in the "n" bytes of the memory starting at the location
+** pointed by "s" writing zeroes.
+**
+** [ESP]
+** Elimina los datos escribiendo ceros en los "n" bytes de memoria empezando por
+** la dirección apuntada por "s"
 */
 
-unsigned int	ft_numlen(long value, int base)
+void	ft_bzero(void *s, size_t n)
 {
-	int	size;
+	size_t		i;
+	char		*str;
 
-	size = 1;
-	if (base != 10 && value < 0)
-		value = -value;
-	if (value < 0)
-		size++;
-	while (value / base)
-	{
-		size++;
-		value /= base;
-	}
-	return (size);
+	i = 0;
+	str = (char *)s;
+	while (i < n)
+		str[i++] = 0;
 }
