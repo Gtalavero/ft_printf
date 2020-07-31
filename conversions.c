@@ -78,8 +78,7 @@ void	p_conversion(t_data *x)
 			while(i-- > 0)
 				x->raw_str = ft_strjoin_free("0", x->raw_str, 2);
 		}
-		x->raw_str = ft_strjoin("0x", x->raw_str); //que pasa aqui
-		// x->raw_str = ft_strjoin_free("0x", x->raw_str, 2); //que pasa aqui
+		x->raw_str = ft_strjoin_free("0x", x->raw_str, 2); //que pasa aqui
 	}
 }
 
