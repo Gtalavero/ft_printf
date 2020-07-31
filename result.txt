@@ -1,0 +1,6 @@
+                  0x7ffeeaf709b8                  0x7ffeeaf709b4                  0x7ffeeaf709b0                  0x7ffeeaf709ac                  0x7ffeeaf709a8                                    0x7ffeeaf709a0                  0x7ffeeaf7099c                  0x7ffeeaf70998                  0x7ffeeaf70994                  0x7ffeeaf70990                  0x7ffeeaf7098c
+
+
+                  0x7ffeeaf709b8                  0x7ffeeaf709b4                  0x7ffeeaf709b0                  0x7ffeeaf709ac                  0x7ffeeaf709a8                  0x7ffeeaf709a4                  0x7ffeeaf709a0                  0x7ffeeaf7099c                  0x7ffeeaf70998                  0x7ffeeaf70994                  0x7ffeeaf70990                  0x7ffeeaf7098c
+Return fake: 370
+Return original: 384

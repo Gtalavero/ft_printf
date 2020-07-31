@@ -14,7 +14,7 @@
 
 void	get_flag(t_data *x)
 {
-	x->flag = '\0';
+	x->flag = '\0'; //
 	while (*x->format == '0' || *x->format == '-')
 	{
 		if (*x->format == '-')
@@ -27,7 +27,7 @@ void	get_flag(t_data *x)
 
 void	get_width(t_data *x)
 {
-	x->width = 0;
+	x->width = 0; //
 	if (*x->format == '*')
 	{
 		x->format++;
@@ -48,7 +48,7 @@ void	get_width(t_data *x)
 
 void	get_precision(t_data *x)
 {
-	x->precision = 0;
+	x->precision = 0; //
 	if (*x->format == '.')
 	{
 		x->format++;
@@ -76,7 +76,8 @@ void		get_type(t_data	*x)
 	int		i;
 
 	i = 0;
-	ft_strlcpy(conver, "cspdiuxX%", 10);
+	// ft_strlcpy(conver, "cspdiuxX%", 10);
+	ft_strlcpy(conver, "cspdiuxX%", sizeof(conver));
 	while (conver[i])
 	{
 		if (*x->format == conver[i])

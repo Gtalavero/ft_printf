@@ -61,7 +61,7 @@ void	p_conversion(t_data *x)
 	int		i;
 
 	i = 0;
-	//x->raw_alloc = 1;
+	x->raw_alloc = 1;
 	x->raw_str = ft_itoa_base(va_arg(x->ap, unsigned long int), 16);
 	while (x->raw_str[i])
 	{
@@ -79,6 +79,7 @@ void	p_conversion(t_data *x)
 				x->raw_str = ft_strjoin_free("0", x->raw_str, 2);
 		}
 		x->raw_str = ft_strjoin("0x", x->raw_str); //que pasa aqui
+		// x->raw_str = ft_strjoin_free("0x", x->raw_str, 2); //que pasa aqui
 	}
 }
 

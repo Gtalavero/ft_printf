@@ -24,7 +24,7 @@ void	cero_flag(t_data *x)
 	}
 	else
 	{
-		x->final_str = malloc(x->width * sizeof(char));
+		x->final_str = malloc(x->width * sizeof(char) + 1);
 		// x->final_str[ft_strlen(x->final_str)] = '\0';//
 		if (x->is_negative == 1)
 			ft_memset(x->final_str, ' ', x->width - 1);
