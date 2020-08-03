@@ -12,7 +12,7 @@
 
 NAME = libftprintf.a
 
-SRCS = ft_printf.c fillstruct.c conversions.c final_str.c \
+SRCS = ft_printf.c fillstruct.c conversions.c final_str.c ft_itoa_minus.c \
 
 OBJS	:= ${SRCS:.c=.o}
 

@@ -6,7 +6,7 @@
 /*   By: gtalaver <gtalaverodev@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 18:48:25 by gtalaver          #+#    #+#             */
-/*   Updated: 2020/07/15 20:33:40 by gtalaver         ###   ########.fr       */
+/*   Updated: 2020/08/03 19:10:25 by gtalaver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ void			c_conversion(t_data *x);
 void			s_conversion(t_data *x);
 void			d_i_u_conversion(t_data *x);
 void			p_conversion(t_data *x);
-void			x_X_conversion(t_data *x);
+void			x_conversion(t_data *x);
 void			fill_final_str(t_data *x);
+char			*ft_itoa_minus(int n, t_data *x);
 
 #endif

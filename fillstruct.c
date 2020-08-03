@@ -6,7 +6,7 @@
 /*   By: gtalaver <gtalaverodev@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 20:58:12 by gtalaver          #+#    #+#             */
-/*   Updated: 2020/07/15 20:34:41 by gtalaver         ###   ########.fr       */
+/*   Updated: 2020/08/03 20:04:16 by gtalaver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	get_flag(t_data *x)
 {
-	x->flag = '\0'; //
 	while (*x->format == '0' || *x->format == '-')
 	{
 		if (*x->format == '-')
@@ -27,7 +26,6 @@ void	get_flag(t_data *x)
 
 void	get_width(t_data *x)
 {
-	x->width = 0; //
 	if (*x->format == '*')
 	{
 		x->format++;
@@ -48,7 +46,6 @@ void	get_width(t_data *x)
 
 void	get_precision(t_data *x)
 {
-	x->precision = 0; //
 	if (*x->format == '.')
 	{
 		x->format++;
@@ -70,13 +67,12 @@ void	get_precision(t_data *x)
 		x->precision = -1;
 }
 
-void		get_type(t_data	*x)
+void	get_type(t_data *x)
 {
 	char	conver[10];
 	int		i;
 
 	i = 0;
-	// ft_strlcpy(conver, "cspdiuxX%", 10);
 	ft_strlcpy(conver, "cspdiuxX%", sizeof(conver));
 	while (conver[i])
 	{
@@ -97,7 +93,7 @@ void	fillstruct(t_data *x)
 	x->type == 'c' || x->type == '%' ? c_conversion(x) : NULL;
 	x->type == 's' ? s_conversion(x) : NULL;
 	x->type == 'p' ? p_conversion(x) : NULL;
-	x->type == 'x' || x->type == 'X' ? x_X_conversion(x) : NULL;
+	x->type == 'x' || x->type == 'X' ? x_conversion(x) : NULL;
 	x->type == 'd' || x->type == 'u' ? d_i_u_conversion(x) : NULL;
 	fill_final_str(x);
 	*x->format != '\0' ? x->format++ : 0;

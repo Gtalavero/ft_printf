@@ -6,7 +6,7 @@
 /*   By: gtalaver <gtalaverodev@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 18:16:33 by gtalaver          #+#    #+#             */
-/*   Updated: 2020/07/12 19:11:19 by gtalaver         ###   ########.fr       */
+/*   Updated: 2020/08/03 20:02:25 by gtalaver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	ini_struct(t_data *x)
 {
-	
-	//x->len = 0;
 	x->flag = '\0';
 	x->width = 0;
 	x->precision = 0;
@@ -33,13 +31,8 @@ int		ft_printf(const char *format, ...)
 
 	va_start(x.ap, format);
 	x.format = (char *)format;
-	//x.format[ft_strlen(x.format) + 1] = '\0';
-	//x.format = ft_strjoin((char *)format, "\0"); //no segfault pero leaks
-	//x.format = malloc(sizeof(char) * ft_strlen(format) + 1);
-	//x.format = ft_strjoin((char*)format, "\0");
 	ini_struct(&x);
-	//free((char *)x.format);
-	x.len = 0; //
+	x.len = 0;
 	while (*x.format != '\0')
 	{
 		if (*x.format == '%')
@@ -47,7 +40,6 @@ int		ft_printf(const char *format, ...)
 			ini_struct(&x);
 			x.format++;
 			fillstruct(&x);
-			//x.format++;
 		}
 		else
 		{
@@ -59,5 +51,3 @@ int		ft_printf(const char *format, ...)
 	va_end(x.ap);
 	return (x.len);
 }
-
-

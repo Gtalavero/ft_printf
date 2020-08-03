@@ -6,43 +6,11 @@
 /*   By: gtalaver <gtalaverodev@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/28 19:09:25 by gtalaver          #+#    #+#             */
-/*   Updated: 2020/07/30 15:39:27 by gtalaver         ###   ########.fr       */
+/*   Updated: 2020/08/03 19:14:54 by gtalaver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-char		*ft_itoa_minus(int n, t_data *x)
-{
-	char		*str;
-	int			i;
-	long int	nb;
-
-	nb = n;
-	if (nb < 0)
-	{
-		x->is_negative = 1;
-		nb = nb * -1;
-	}
-	if (nb != 0)
-	{
-	i = ft_numlen(nb, 10);
-		if (!(str = malloc(i * sizeof(char) + 1)))
-			return (0);
-		str[i--] = 0;
-		while (nb > 0)
-		{
-			str[i--] = nb % 10 + '0';
-			nb = nb / 10;
-		}
-	}
-	else
-	{
-		str = ft_calloc(2, sizeof(char));
-		str[0] = 48;
-	}
-	return (str);
-}
 
 void	s_conversion(t_data *x)
 {
@@ -75,17 +43,17 @@ void	p_conversion(t_data *x)
 		if (x->precision > 0 && x->raw_str != NULL)
 		{
 			i = x->precision - i;
-			while(i-- > 0)
+			while (i-- > 0)
 				x->raw_str = ft_strjoin_free("0", x->raw_str, 2);
 		}
-		x->raw_str = ft_strjoin_free("0x", x->raw_str, 2); //que pasa aqui
+		x->raw_str = ft_strjoin_free("0x", x->raw_str, 2);
 	}
 }
 
-void	x_X_conversion(t_data *x)
+void	x_conversion(t_data *x)
 {
 	int	i;
-	
+
 	i = 0;
 	x->precision > 0 || (x->precision == -1) ? x->raw_alloc = 1 : 0;
 	if (x->precision != 0)
@@ -125,21 +93,21 @@ void	c_conversion(t_data *x)
 {
 	char	arg[2];
 
-	// if(!(arg = malloc(sizeof(char) * 2)))
-		// return;
-	x->type == '%' ? arg[0] = '%' : (arg[0] = va_arg(x->ap, int));
+	if (x->type == '%')
+		arg[0] = '%';
+	else
+		arg[0] = va_arg(x->ap, int);
 	arg[1] = '\0';
 	if (arg[0] == '\0')
 	{
-		x->flag == '-' ? write (1, "\0", 1) : 0;
-		while(--(x->width) > 0)
+		x->flag == '-' ? write(1, "\0", 1) : 0;
+		while (--(x->width) > 0)
 		{
 			x->flag == '0' ? write(1, "0", 1) : write(1, " ", 1);
 			x->len++;
 		}
-		x->flag != '-' ? write (1, "\0", 1) : 0;
+		x->flag != '-' ? write(1, "\0", 1) : 0;
 		x->len++;
 	}
 	x->raw_str = arg;
 }
-
