@@ -1,5 +1,5 @@
-## ESTRUCTURA
-%[FLAG][WIDTH][.PRECISION][LENGHT][TYPE]
+## STRUCTURE
+	%[FLAG][WIDTH][.PRECISION][LENGHT][TYPE]
 
 ### FLAGS
 	`-`	Alinear a la izquierda. Si por defecto es "  hola" será "hola  "
@@ -40,11 +40,11 @@
 			mayúscula en mayúscula.
 
 ## ORDER
-1. Loop the format until you meet a `%`
-2. Save in the structure the flag, width, precision and conversion specifier (the type)
-3. Do the conversion and save in `raw_str`
-4. Modify raw_str to fit with the data saved in the structure and fill `final_str` with the result
-5. Print
+	1. Loop the format until you meet a `%`
+	2. Save in the structure the flag, width, precision and conversion specifier (the type)
+	3. Do the conversion and save in `raw_str`
+	4. Modify raw_str to fit with the data saved in the structure and fill `final_str` with the result
+	5. Print
 
 
 
