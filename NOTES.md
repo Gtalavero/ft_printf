@@ -1,24 +1,25 @@
-ESTRUCTURA
+## ESTRUCTURA
 %[FLAG][WIDTH][.PRECISION][LENGHT][TYPE]
 
-FLAGS: -0.*
-	-	Alinear a la izquierda. Si por defecto es "  hola" será "hola  "
-	0	Se rellenará con ceros a la izq hasta el valor del nº.
+### FLAGS
+	`-`	Alinear a la izquierda. Si por defecto es "  hola" será "hola  "
+	`0`	Se rellenará con ceros a la izq hasta el valor del nº.
 		Para conversiones: d, i, u, x, X, y de BONUS: e, f, g(BONUS).
 		Si se usa '-', el '0' se ignora.
 		Si hay precisión en una conv decimal (d, i, u, x, X) también se ignora el '0'.
-	.	(Ver precisión)
-	*	(Ver width)
+	`.`	(Ver precisión)
+	`*`	(Ver width)
 
-WIDTH - Tamaño mínimo del campo donde se imprimirá el valor
+### WIDTH 
+	Tamaño mínimo del campo donde se imprimirá el valor
 	Es opcional
 	Si el valor a convertir tiene menos longitud que el width, será "padded" con espacios a la izq,
 		o a la derecha si existe el flag '-'
-	*	Indicaremos que el tamaño se especificará en el siguiente argumento. Si ponemos un número
+	`*`	Indicaremos que el tamaño se especificará en el siguiente argumento. Si ponemos un número
 			después	del '*' indicaremos en qué argumento especificaremos el width
 	NUNCA un width pequeño o inexistente truncará un field.
 
-PRECISION - for d, i, u, x, X, s
+### PRECISION
 	Es opcional
 	Número mínimo de dígitos para: (d, i, u, x y X).
 	Número de caracteres a imprimir para cadenas de texto (s)
@@ -29,11 +30,7 @@ PRECISION - for d, i, u, x, X, s
 	Primará sobre el width
 	Si existe, se omitirá el flag '0'
 
-
-LENGHT - l ll h hh
-	Solo para el BONUS
-
-TIPOS: cspdiuxX%
+### TYPES
 	c		Imprime el carácter ASCII correspondiente. Imprime char
 	s		Cadena de caracteres (terminada en '\0'). Imprime string
 	p		Dirección de memoria (puntero) en dígitos hexadecimales
@@ -42,17 +39,12 @@ TIPOS: cspdiuxX%
 	x, X	Conversión hexadecimal sin signo. Imprime int. La minúscula imprime en minúscula y la
 			mayúscula en mayúscula.
 
-FLAGS BONUS: l ll h hh
-TIPOS BONUS: nfge
-
-ORDEN
-1. Creamos una estructura en el .h donde incluiremos las características de la string (lenght, flags, etc.)
-2. Recorreremos el format:
-Cuando nos encontremos un %, llamaremos a una función que:
-	Conseguirá el width y la precisión y lo añadirá a la estructura
-
-	comprobaremos si es un flag (0 o -) y lo asignaremos a la variable de la estructura.
-Si el siguiente no es un especificador de conversión, comprobaremos su width y lenght
+## ORDER
+1. Loop the format until you meet a `%`
+2. Save in the structure the flag, width, precision and conversion specifier (the type)
+3. Do the conversion and save in `raw_str`
+4. Modify raw_str to fit with the data saved in the structure and fill `final_str` with the result
+5. Print
 
 
 
