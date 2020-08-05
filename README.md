@@ -7,6 +7,24 @@ Flags: - and 0.
 
 Width, precision, lenght.
 
+# Usage
+First, clone the repo:
+
+    git clone https://github.com/Gtalavero/ft_printf.git
+
+Compile to create 'libfprintf.a':
+ 
+    make
+
+Add ft_printf.h to your main
+
+    #include "ft_printf.h"
+    
+Compile it with a program
+
+    gcc main.c libfprintf.a
+
+
 ## Rules
 The proyect is coded complying with the conventions and restrictions of 42 school so probably you will see different (and probably easier) ways to do the same.
 
