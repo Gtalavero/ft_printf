@@ -2,26 +2,26 @@
 	%[FLAG][WIDTH][.PRECISION][LENGHT][TYPE]
 
 ### FLAGS
-	`-`	Alinear a la izquierda. Si por defecto es "  hola" será "hola  "
-	`0`	Se rellenará con ceros a la izq hasta el valor del nº.
-		Para conversiones: d, i, u, x, X, y de BONUS: e, f, g(BONUS).
-		Si se usa '-', el '0' se ignora.
-		Si hay precisión en una conv decimal (d, i, u, x, X) también se ignora el '0'.
-	`.`	(Ver precisión)
-	`*`	(Ver width)
+	`-`	Align to the left. If by default it is "  hello" it will be "hello  "
+	`0`	It will be padded with zeros to the left up to the value of the digit..
+		For conversions: `d`, `i`, `u`, `x`, `X`.
+		If `-` is used, `0` is ignored.
+		If there is precision in a decimal conversion (`d, i, u, x, X`) is also ignored
 
-### WIDTH 
-	Tamaño mínimo del campo donde se imprimirá el valor
-	Es opcional
-	Si el valor a convertir tiene menos longitud que el width, será "padded" con espacios a la izq,
-		o a la derecha si existe el flag '-'
-	`*`	Indicaremos que el tamaño se especificará en el siguiente argumento. Si ponemos un número
-			después	del '*' indicaremos en qué argumento especificaremos el width
-	NUNCA un width pequeño o inexistente truncará un field.
+### WIDTH
+	Minimum field size where the value will be printed
+	Optional.
+	`*`	The width will be specified in the next argument. If we put a number `n` after the `*`
+			the width will be specified in the `n` argument
+	If the value to convert has less length than the width, it will be left padded with spaces,
+		or right padded if the flag '-' exists
+	NEVER a small or non-existent width will truncate a field.
 
 ### PRECISION
-	Es opcional
-	Número mínimo de dígitos para: (d, i, u, x y X).
+	
+	Optional
+	Will follow a `.` or will be specified in other argument with `*` as the width.
+	Minimum number of digits for: (d, i, u, x y X).
 	Número de caracteres a imprimir para cadenas de texto (s)
 	*	Indicaremos que la precision se especificará en el siguiente argumento. Si ponemos un número
 			después	del '*' indicaremos en qué argumento especificaremos la precisión
