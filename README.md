@@ -31,7 +31,7 @@ Compile it with a program
 
 ## How I have approached the project and how you can do it
 ### 1.- Familiarize with printf:
-I took my time to study the manual (man 3 printf) and I took a lot of notes to understand printf (you can see those [notes](NOTES.md)).
+I took my time to study the manual (man 3 printf) and I took a lot of notes to understand printf (you can see those [notes](NOTES.md) where I have summarized the manual with the necessary information).
 
 ### 2.- Learn the basics
 To face the proyect you should know about structures, variadic arguments, pointers, memory allocations... don't try to bypass that steps or you are going to have a bad time.
@@ -47,6 +47,7 @@ When I understood what printf do, I decided to follow the order bellow. I encour
 ## Tips and tools
 ### Again...
 Read my [notes](NOTES.md). I promise that the notes will help you.
+
 ### Keep in mind all the time the memory leaks. 
 Don't make my same mistake and leave it for last. Same for overflows, segmentation faults, bus error...
 I have used different methods to check the memory leaks:
