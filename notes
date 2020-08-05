@@ -1,25 +1,3 @@
-valgrind --leak-check=full --show-leak-kinds=definite --track-origins=yes ./a.out
-
-Revisar petadas de los "p", sobre todo 442 y 447 fallan muy de vez en Cuando (parece que ya van)
-
-440
-445
-447
-
-Test 336 (x_basic_pos) : FAILED.
-    First line of code: {return test("this %x number", 17);}
-    Timed out
-
-mallocs:
-¿protegidos?
-
-
-*printf("%.0d", -8472); caso del test #208
-
-
-*Mirar al llamar a ceroflag en final_str los malloc
-*Leaks y demás
-
 ESTRUCTURA
 %[FLAG][WIDTH][.PRECISION][LENGHT][TYPE]
 
@@ -40,7 +18,7 @@ WIDTH - Tamaño mínimo del campo donde se imprimirá el valor
 			después	del '*' indicaremos en qué argumento especificaremos el width
 	NUNCA un width pequeño o inexistente truncará un field.
 
-PRECISION d, i, u, x, X, s
+PRECISION - for d, i, u, x, X, s
 	Es opcional
 	Número mínimo de dígitos para: (d, i, u, x y X).
 	Número de caracteres a imprimir para cadenas de texto (s)
@@ -67,10 +45,6 @@ TIPOS: cspdiuxX%
 FLAGS BONUS: l ll h hh
 TIPOS BONUS: nfge
 
-
-
-
-
 ORDEN
 1. Creamos una estructura en el .h donde incluiremos las características de la string (lenght, flags, etc.)
 2. Recorreremos el format:
@@ -80,18 +54,6 @@ Cuando nos encontremos un %, llamaremos a una función que:
 	comprobaremos si es un flag (0 o -) y lo asignaremos a la variable de la estructura.
 Si el siguiente no es un especificador de conversión, comprobaremos su width y lenght
 
-
-
-PENDIENTE:
-Liberar la estructura
-
-
-DUDAS
-¿Impresión simple? printf("hola")
-
-¿Carácteres de escape? \\ \" \' \%
-
-¿Parámetro orden "%3$d"?
 
 
 
