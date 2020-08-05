@@ -1,5 +1,5 @@
 # Aim of the proyect
-42 school project about replicating the PRINTF function in C.
+[42 school][1] project about replicating the PRINTF function in C.
 
 Conversions: c, s, d, i, u, p, x and X.
 
@@ -10,7 +10,7 @@ Width, precision, lenght.
 ## Rules
 The proyect is coded complying with the conventions and restrictions of 42 school so probably you will see different (and probably easier) ways to do the same.
 
-The [42 norme](https://cdn.intra.42.fr/pdf/pdf/960/norme.en.pdf)
+[The 42 norme][2]
 
 ## How I have approached the project and how you can do it
 ### 1.- Familiarize with printf:
@@ -36,8 +36,11 @@ I have used different methods to check the memory leaks:
 'valgrind --leak-check=full --show-leak-kinds=definite --track-origins=yes ./a.out'
 
 ### Test your proyect
-I used the 745 tests of [pft_2019](https://github.com/cclaude42/PFT_2019) from @cclaude42
+I used the 745 tests of [pft_2019][3] from @cclaude42
 
+[1]: https://www.42madrid.com/ "42 Madrid"
+[2]: https://cdn.intra.42.fr/pdf/pdf/960/norme.en.pdf
+[3]: https://github.com/cclaude42/PFT_2019
 
 
 
