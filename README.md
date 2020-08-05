@@ -33,7 +33,7 @@ Don't make my same mistake and leave it for last. Same for overflows, segmentati
 I have used different methods to check the memory leaks:
 1. Add 'system("leaks a.out")' at the end of the main just before the return.
 2. With valgrind (RTFM)
-valgrind --leak-check=full --show-leak-kinds=definite --track-origins=yes ./a.out
+'valgrind --leak-check=full --show-leak-kinds=definite --track-origins=yes ./a.out'
 
 ### Test your proyect
 I used the 745 tests of [pft_2019](https://github.com/cclaude42/PFT_2019) from @cclaude42
