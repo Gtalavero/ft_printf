@@ -1,11 +1,16 @@
 # Aim of the proyect
 [42 school][1] project about replicating the PRINTF function in C.
 
-Conversions: `c`, `s`, `d`, `i`, `u`, `p`, `x` and `X`.
+**Conversions:** `c`, `s`, `d`, `i`, `u`, `p`, `x` and `X`.
 
-Flags: `-` and `0`.
+**Flags:** `-` and `0`.
 
-Width, precision, lenght.
+**Width, precision, lenght**.
+
+## Rules
+The proyect is coded complying with the conventions and restrictions of 42 school so probably you will see different (and probably easier) ways to do the same.
+
+[The 42 norme][2]
 
 # Usage
 First, clone the repo:
@@ -23,12 +28,6 @@ Add ft_printf.h to your main
 Compile it with a program
 
     gcc main.c libfprintf.a
-
-
-## Rules
-The proyect is coded complying with the conventions and restrictions of 42 school so probably you will see different (and probably easier) ways to do the same.
-
-[The 42 norme][2]
 
 ## How I have approached the project and how you can do it
 ### 1.- Familiarize with printf:
