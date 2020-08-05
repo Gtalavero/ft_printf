@@ -31,7 +31,7 @@ Compile it with a program
 
 ## How I have approached the project and how you can do it
 ### 1.- Familiarize with printf:
-I took my time to study the manual (man 3 printf) and I took a lot of notes to understand printf (you can see those [notes](notes) in spanish).
+I took my time to study the manual (man 3 printf) and I took a lot of notes to understand printf (you can see those [notes](NOTES.md) in spanish).
 
 ### 2.- Learn the basics
 To face the proyect you should know about structures, variadic arguments, pointers, memory allocations... don't try to bypass that steps or you are going to have a bad time.
