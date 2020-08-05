@@ -1,8 +1,8 @@
 # Aim of the proyect
-42 school project about replicating the PRINTF function in C
+42 school project about replicating the PRINTF function in C.
 
-Conversions: c, s, d, i, u, p, x and X
-Flags: - and 0
+Conversions: c, s, d, i, u, p, x and X.
+Flags: - and 0.
 Width, precision, lenght.
 
 ## Rules
