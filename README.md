@@ -51,7 +51,7 @@ Read my [notes](NOTES.md). I promise that the notes will help you.
 ### Keep in mind all the time the memory leaks. 
 Don't make my same mistake and leave it for last. Same for overflows, segmentation faults, bus error...
 I have used different methods to check the memory leaks:
-1. Add `system("leaks a.out")` at the end of the main just before the return.
+1. Add `system("leaks a.out")` at the end of the main just before the return. (From #include <stdlib.h>)
 2. With valgrind (RTFM)
 
         valgrind --leak-check=full --show-leak-kinds=definite --track-origins=yes ./a.out
